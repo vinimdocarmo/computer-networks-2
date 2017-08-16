@@ -1,6 +1,6 @@
 import sys
 from time import sleep
-from pinger_client import PingerClient
+from ping_client import UDPPingClient
 from socket import timeout as socket_timeout
 
 if len(sys.argv) != 3:
@@ -10,9 +10,9 @@ HOST = sys.argv[1]
 PORT = int(sys.argv[2])
 
 for attempts in range(0, 10):
-    with PingerClient() as pinger:
+    with UDPPingClient() as ping:
         try:
-            data_bytes, address = pinger.ping(attempts, HOST, PORT)
+            data_bytes, address = ping.ping(attempts, HOST, PORT)
             data = data_bytes.decode()
             timestamp = data.split(' ')[2]
 

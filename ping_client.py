@@ -2,7 +2,7 @@ import socket
 from time import time
 
 
-class PingerClient(socket.socket):
+class UDPPingClient(socket.socket):
     def __init__(self):
         super().__init__(socket.AF_INET, socket.SOCK_DGRAM)
         self.CRLF = '\r\n'
