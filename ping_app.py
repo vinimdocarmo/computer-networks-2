@@ -19,5 +19,6 @@ for attempts in range(0, 10):
             print('{} PING {} timestamp {}'.format(attempts, HOST, timestamp))
         except socket_timeout:
             print('{} PING {} timed out'.format(attempts, HOST))
+        finally:
+            sleep(1)
 
-    sleep(1)
