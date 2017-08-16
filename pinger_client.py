@@ -8,7 +8,7 @@ class PingerClient(socket.socket):
         self.CRLF = '\r\n'
         self.settimeout(1)
 
-    def ping(self, attempts, host='localhost', port=3000):g
+    def ping(self, attempts, host='localhost', port=3000):
         msg = 'PING {} {} {}'.format(attempts, time(), self.CRLF)
         self.connect((host, port))
         self.sendall(bytes(msg, 'UTF-8'))
